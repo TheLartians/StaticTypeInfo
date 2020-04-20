@@ -7,6 +7,10 @@
 
 namespace static_type_info {
 
+#if defined(__GNUC__) && !defined(__clang__)
+#pragma GCC push_options
+#pragma GCC optimize ("O0")
+#endif
   template <class T> constexpr std::string_view rawTypeName() {
 #if defined(_MSC_VER)
     return __FUNCSIG__;
@@ -14,6 +18,9 @@ namespace static_type_info {
     return __PRETTY_FUNCTION__;
 #endif
   }
+#if defined(__GNUC__) && !defined(__clang__)
+#pragma GCC pop_options
+#endif
 
   namespace probe {
     constexpr auto probeRawTypeName = rawTypeName<double>();
