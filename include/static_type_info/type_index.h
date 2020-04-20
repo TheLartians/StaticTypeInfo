@@ -1,11 +1,11 @@
 #pragma once
 
-#include <type_traits>
-#include <sha256_literal.h>
+#include <static_type_info/hash.h>
 #include <static_type_info/type_name.h>
 
 #include <array>
 #include <climits>
+#include <type_traits>
 #include <utility>
 
 namespace static_type_info {
@@ -22,27 +22,10 @@ namespace static_type_info {
       return asArray<T, N>(data, std::make_index_sequence<N>());
     }
 
-    using Hash = sha256_literal::HashType;
-
-    template <typename T, size_t I> static constexpr T scalarHash(Hash data) {
-      if constexpr (I == 0) {
-        return T(data[I]);
-      } else {
-        return (scalarHash<T, I - 1>(data) >> CHAR_BIT) + T(data[I]);
-      }
-    }
-
-    template <typename T> static constexpr auto scalarHash(Hash data) {
-      return scalarHash<T, sizeof(T) / sizeof(data[0])>(data);
-    }
-
   }  // namespace detail
 
   template <class T> constexpr TypeIndex getTypeIndex() {
-    constexpr TypeName name = getTypeName<T>();
-    constexpr auto shaHash = sha256_literal::compute(detail::asArray<uint8_t, name.size()>(name));
-    static_assert(sizeof(shaHash) >= sizeof(TypeIndex));
-    return detail::scalarHash<TypeIndex>(shaHash);
+    return hash_64_fnv1a_const(getTypeName<T>());
   }
 
 }  // namespace static_type_info

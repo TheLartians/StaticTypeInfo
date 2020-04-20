@@ -30,18 +30,6 @@ CPMAddPackage(
   VERSION 1.0
 )
 
-CPMAddPackage(
-  NAME sha256_literal
-  GITHUB_REPOSITORY aguinet/sha256_literal
-  DOWNLOAD_ONLY Yes
-  GIT_TAG f64524c9391bba379bae1928016ef51fbdea9849
-)
-
-if (sha256_literal_ADDED)
-  add_library(sha256_literal INTERFACE IMPORTED)
-  target_include_directories(sha256_literal INTERFACE "${sha256_literal_SOURCE_DIR}")
-endif()
-
 # ---- Add source files ----
 
 FILE(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
@@ -56,8 +44,6 @@ set_target_properties(StaticTypeInfo PROPERTIES INTERFACE_COMPILE_FEATURES cxx_s
 
 # beeing a cross-platform target, we enforce enforce standards conformance on MSVC
 target_compile_options(StaticTypeInfo INTERFACE "$<$<BOOL:${MSVC}>:/permissive->")
-
-target_link_libraries(StaticTypeInfo INTERFACE sha256_literal)
 
 target_include_directories(StaticTypeInfo
 INTERFACE
