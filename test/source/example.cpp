@@ -19,7 +19,7 @@ void example() {
   // combine both in a single type
   constexpr auto typeID = getTypeID<int>();
   static_assert(typeID.name == "int");
-  static_assert(typeID.index == getTypeIndex<int>());
+  static_assert(typeID.index == intIdx);
 }
 // clang-format on
 
