@@ -3,11 +3,6 @@
 #include <static_type_info/hash.h>
 #include <static_type_info/type_name.h>
 
-#include <array>
-#include <climits>
-#include <type_traits>
-#include <utility>
-
 namespace static_type_info {
 
   using TypeIndex = uint64_t;
