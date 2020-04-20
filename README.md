@@ -37,6 +37,18 @@ void example() {
 The type name is extracted from the macro `__PRETTY_FUNCTION__` (clang/gcc) or `__FUNCSIG__` (on MSVC) inside a probe function and converted to a `string_view` using the `constexpr` constructor.
 The type index is a 64 bit fnv1a hash of the type name.
 
+## How integrate
+
+Use [CPM.cmake](https://github.com/TheLartians/CPM.cmake) to easily add the headers to your CMake project.
+
+```cmake
+CPMAddPackage(
+  NAME StaticTypeInfo
+  VERSION 1.0
+  GIT_REPOSITORY https://github.com/TheLartians/StaticTypeInfo
+)
+```
+
 ## Licence
 
 The library is released under the MIT license.
