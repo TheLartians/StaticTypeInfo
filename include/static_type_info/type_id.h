@@ -6,8 +6,8 @@
 namespace static_type_info {
 
   struct TypeID {
-    TypeName name;
-    TypeIndex index;
+    TypeName name = TypeName();
+    TypeIndex index = TypeIndex();
   };
 
   template <class T> constexpr TypeID getTypeID() {
