@@ -33,7 +33,10 @@ TEST_CASE("TypeName") {
   static_assert(getTypeName<::C<float>>() == getTypeName<B>());
   static_assert(getTypeName<::C<float>>() != getTypeName<::C<int>>());
 
+  CHECK(std::string(getTypeName<char>()) == std::string("char"));
   CHECK(std::string(getTypeName<int>()) == std::string("int"));
+  CHECK(std::string(getTypeName<float>()) == std::string("float"));
+  CHECK(std::string(getTypeName<double>()) == std::string("double"));
 
 #if defined(_MSC_VER)
   CHECK(std::string(getTypeName<ns::A>()) == std::string("class ns::A"));
