@@ -10,7 +10,7 @@
 
 namespace static_type_info {
 
-  using TypeIndex = size_t;
+  using TypeIndex = uint64_t;
 
   template <class T> constexpr TypeIndex getTypeIndex() {
     return hash_64_fnv1a_const(getTypeName<T>());
