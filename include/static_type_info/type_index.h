@@ -1,5 +1,6 @@
 #pragma once
 
+#include <type_traits>
 #include <sha256_literal.h>
 #include <static_type_info/type_name.h>
 
