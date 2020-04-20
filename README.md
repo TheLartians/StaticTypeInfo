@@ -47,6 +47,8 @@ CPMAddPackage(
   VERSION 1.0
   GIT_REPOSITORY https://github.com/TheLartians/StaticTypeInfo
 )
+
+target_link_libraries(myProject StaticTypeInfo)
 ```
 
 ## Licence
