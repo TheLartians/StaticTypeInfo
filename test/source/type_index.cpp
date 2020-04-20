@@ -20,14 +20,17 @@ template <class A, class B> void checkType() {
     CHECK(ia != ib);
   }
 }
-
-TEST_CASE_TEMPLATE("TypeIndex", T, char, int, unsigned, float, double, ns::A, ns::B, ns::C<ns::A>,
-                   ns::C<ns::B>) {
+#include <iostream>
+TEST_CASE_TEMPLATE("TypeIndex", T, char, int, unsigned, float, double, long, long long, size_t,
+                   ns::A, ns::B, ns::C<ns::A>, ns::C<ns::B>) {
   checkType<char, T>();
   checkType<int, T>();
   checkType<unsigned, T>();
   checkType<float, T>();
   checkType<double, T>();
+  checkType<long, T>();
+  checkType<long long, T>();
+  checkType<size_t, T>();
   checkType<ns::A, T>();
   checkType<ns::B, T>();
   checkType<ns::C<ns::A>, T>();
