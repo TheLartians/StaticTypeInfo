@@ -12,7 +12,7 @@ A simple C++17 compile-time type info library.
 ## API
 
 The header-only library exposes two main `constexpr` functions: `constexpr TypeName getTypeName<T>()` and `constexpr TypeIndex getTypeIndex<T>()`.
-The TypeIndex may be used as a key in any hash-based container.`
+The TypeIndex may be used as a key in any hash-based container.
 
 ```cpp
 #include <iostream>
@@ -42,7 +42,11 @@ void example() {
 The type name is extracted from the macro `__PRETTY_FUNCTION__` (clang/gcc) or `__FUNCSIG__` (on MSVC) inside a probe function and converted to a `string_view` using the `constexpr` constructor.
 The type index is a 64 bit fnv1a hash of the type name.
 
-## How integrate
+## Compatibility
+
+The library has been tested with AppleClang 11, Visual Studio 16 2019, and gcc-9.
+
+## How to integrate
 
 Use [CPM.cmake](https://github.com/TheLartians/CPM.cmake) to easily add the headers to your CMake project.
 
