@@ -1,5 +1,6 @@
 #include <doctest/doctest.h>
 #include <static_type_info/type_id.h>
+
 #include <ostream>
 
 TEST_CASE_TEMPLATE("TypeID", T, int, float, double) {
