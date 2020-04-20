@@ -15,6 +15,11 @@ void example() {
   constexpr auto intIdx = getTypeIndex<int>();
   constexpr auto floatIdx = getTypeIndex<float>();
   static_assert(intIdx != floatIdx);
+
+  // combine both in a single type
+  constexpr auto typeID = getTypeID<int>();
+  static_assert(typeID.name == "int");
+  static_assert(typeID.index == intIdx);
 }
 // clang-format on
 

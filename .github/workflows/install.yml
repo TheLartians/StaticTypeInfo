@@ -20,7 +20,7 @@ jobs:
         rm -rf build
 
     - name: configure
-      run: CC=gcc-8 CXX=g++-8 cmake -Htest -Bbuild -DTEST_INSTALLED_VERSION=1
+      run: CC=gcc-9 CXX=g++-9 cmake -Htest -Bbuild -DTEST_INSTALLED_VERSION=1
 
     - name: build
       run: cmake --build build --config Debug -j4
