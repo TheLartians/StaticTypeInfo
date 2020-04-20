@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
     return 1;
   }
 
-  greeter::Greeter greeter(name);
+  greeter::StaticTypeInfo greeter(name);
   std::cout << greeter.greet(langIt->second) << std::endl;
 
   return 0;

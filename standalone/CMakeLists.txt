@@ -18,7 +18,7 @@ CPMAddPackage(
 )
 
 CPMAddPackage(
-  NAME Greeter
+  NAME StaticTypeInfo
   SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..
 )
 
@@ -30,7 +30,7 @@ add_executable(GreeterStandalone ${sources})
 
 set_target_properties(GreeterStandalone PROPERTIES 
   CXX_STANDARD 17 
-  OUTPUT_NAME "Greeter"
+  OUTPUT_NAME "StaticTypeInfo"
 )
 
-target_link_libraries(GreeterStandalone Greeter cxxopts)
+target_link_libraries(GreeterStandalone StaticTypeInfo cxxopts)
