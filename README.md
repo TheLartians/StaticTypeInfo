@@ -11,7 +11,8 @@ A simple C++17 compile-time type info library.
 
 ## API
 
-The header-only library exposes two `constexpr` functions: `string_view getTypeName<T>()` and `TypeIndex getTypeIndex<T>()`.
+The header-only library exposes two `constexpr` functions: `constexpr string_view getTypeName<T>()` and `constexpr TypeIndex getTypeIndex<T>()`.
+The TypeIndex may be used as a key in any hash-based container.`
 
 ```cpp
 #include <iostream>
@@ -35,3 +36,8 @@ void example() {
 
 The type name is extracted from the macro `__PRETTY_FUNCTION__` (clang/gcc) or `__FUNCSIG__` (on MSVC) inside a probe function and converted to a `string_view` using the `constexpr` constructor.
 The type index is a 64 bit fnv1a hash of the type name.
+
+## Licence
+
+The library is released under the MIT license.
+See the [LICENSE](LICENSE) for more info.
