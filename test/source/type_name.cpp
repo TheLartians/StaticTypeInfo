@@ -1,12 +1,13 @@
 #include <doctest/doctest.h>
 #include <static_type_info/type_name.h>
-#include <string>
+
 #include <iostream>
+#include <string>
 namespace ns {
-  class A { };
-  class B { };
-  template <class T> class C { };
-}
+  class A {};
+  class B {};
+  template <class T> class C {};
+}  // namespace ns
 
 TEST_CASE("Type name") {
   using namespace static_type_info;
