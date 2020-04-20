@@ -11,7 +11,7 @@ A simple C++17 compile-time type info library.
 
 ## API
 
-The header-only library exposes two `constexpr` functions: `constexpr string_view getTypeName<T>()` and `constexpr TypeIndex getTypeIndex<T>()`.
+The header-only library exposes two main `constexpr` functions: `constexpr TypeName getTypeName<T>()` and `constexpr TypeIndex getTypeIndex<T>()`.
 The TypeIndex may be used as a key in any hash-based container.`
 
 ```cpp
@@ -29,6 +29,11 @@ void example() {
   constexpr auto intIdx = getTypeIndex<int>();
   constexpr auto floatIdx = getTypeIndex<float>();
   static_assert(intIdx != floatIdx);
+
+  // combine both in a single type
+  constexpr auto typeID = getTypeID<int>();
+  static_assert(typeID.name == "int");
+  static_assert(typeID.index == getTypeIndex<int>());
 }
 ```
 
@@ -44,7 +49,7 @@ Use [CPM.cmake](https://github.com/TheLartians/CPM.cmake) to easily add the head
 ```cmake
 CPMAddPackage(
   NAME StaticTypeInfo
-  VERSION 1.0
+  VERSION 1.1
   GIT_REPOSITORY https://github.com/TheLartians/StaticTypeInfo
 )
 
