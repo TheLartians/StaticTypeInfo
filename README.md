@@ -1,10 +1,10 @@
-[![Actions Status](https://github.com/TheLartians/TypeIndex/workflows/MacOS/badge.svg)](https://github.com/TheLartians/TypeIndex/actions)
-[![Actions Status](https://github.com/TheLartians/TypeIndex/workflows/Windows/badge.svg)](https://github.com/TheLartians/TypeIndex/actions)
-[![Actions Status](https://github.com/TheLartians/TypeIndex/workflows/Ubuntu/badge.svg)](https://github.com/TheLartians/TypeIndex/actions)
-[![Actions Status](https://github.com/TheLartians/TypeIndex/workflows/Style/badge.svg)](https://github.com/TheLartians/TypeIndex/actions)
-[![Actions Status](https://github.com/TheLartians/TypeIndex/workflows/Install/badge.svg)](https://github.com/TheLartians/TypeIndex/actions)
-[![codecov](https://codecov.io/gh/TheLartians/TypeIndex/branch/master/graph/badge.svg)](https://codecov.io/gh/TheLartians/TypeIndex)
+[![Actions Status](https://github.com/TheLartians/StaticTypeInfo/workflows/MacOS/badge.svg)](https://github.com/TheLartians/StaticTypeInfo/actions)
+[![Actions Status](https://github.com/TheLartians/StaticTypeInfo/workflows/Windows/badge.svg)](https://github.com/TheLartians/StaticTypeInfo/actions)
+[![Actions Status](https://github.com/TheLartians/StaticTypeInfo/workflows/Ubuntu/badge.svg)](https://github.com/TheLartians/StaticTypeInfo/actions)
+[![Actions Status](https://github.com/TheLartians/StaticTypeInfo/workflows/Style/badge.svg)](https://github.com/TheLartians/StaticTypeInfo/actions)
+[![Actions Status](https://github.com/TheLartians/StaticTypeInfo/workflows/Install/badge.svg)](https://github.com/TheLartians/StaticTypeInfo/actions)
+[![codecov](https://codecov.io/gh/TheLartians/StaticTypeInfo/branch/master/graph/badge.svg)](https://codecov.io/gh/TheLartians/StaticTypeInfo)
 
-# TypeIndex
+# StaticTypeInfo
 
 C++17 compile-time type info. 

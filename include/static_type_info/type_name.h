@@ -22,7 +22,9 @@ namespace static_type_info {
     constexpr size_t suffixLength = probeRawTypeName.size() - prefixLength - probeRawTypeLength;
   }  // namespace probe
 
-  template <class T> constexpr std::string_view typeName() {
+  using TypeName = std::string_view;
+
+  template <class T> constexpr TypeName getTypeName() {
     std::string_view name = rawTypeName<T>();
     return std::string_view(name.data() + probe::prefixLength,
                             name.size() - probe::prefixLength - probe::suffixLength);
