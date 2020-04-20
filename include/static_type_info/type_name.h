@@ -17,10 +17,10 @@ namespace static_type_info {
 
   namespace probe {
     constexpr auto probeRawTypeName = rawTypeName<double>();
+    constexpr size_t probeRawTypeLength = std::string_view("double").size();
     constexpr size_t prefixLength = probeRawTypeName.find("double");
     static_assert(prefixLength != std::string_view::npos,
                   "cannot extract typename from function signature");
-    constexpr size_t probeRawTypeLength = std::string_view("double").size();
     constexpr size_t suffixLength = probeRawTypeName.size() - prefixLength - probeRawTypeLength;
   }  // namespace probe
 

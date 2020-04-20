@@ -30,3 +30,8 @@ void example() {
   static_assert(intIdx != floatIdx);
 }
 ```
+
+## How it works
+
+The type name is extracted from the macro `__PRETTY_FUNCTION__` (clang/gcc) or `__FUNCSIG__` (on MSVC) inside a probe function and converted to a `string_view` using the `constexpr` constructor.
+The type index is a 64 bit fnv1a hash of the type name.
