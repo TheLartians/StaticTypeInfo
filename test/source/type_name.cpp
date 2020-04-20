@@ -19,6 +19,12 @@ TEST_CASE("Type name") {
   static_assert(typeName<ns::C<float>>() != typeName<ns::C<int>>());
 
   CHECK(std::string(typeName<int>()) == std::string("int"));
+
+#if defined(_MSC_VER)
+  CHECK(std::string(typeName<ns::A>()) == std::string("class ns::A"));
+  CHECK(std::string(typeName<ns::C<ns::A>>()) == std::string("class ns::C<class ns::A>"));
+#else
   CHECK(std::string(typeName<ns::A>()) == std::string("ns::A"));
   CHECK(std::string(typeName<ns::C<ns::A>>()) == std::string("ns::C<ns::A>"));
+#endif
 }
