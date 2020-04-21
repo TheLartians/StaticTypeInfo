@@ -20,7 +20,7 @@ template <class A, class B> void checkType() {
     CHECK(ia != ib);
   }
 }
-#include <iostream>
+
 TEST_CASE_TEMPLATE("TypeIndex", T, char, int, unsigned, float, double, long, long long, size_t,
                    ns::A, ns::B, ns::C<ns::A>, ns::C<ns::B>) {
   checkType<char, T>();
