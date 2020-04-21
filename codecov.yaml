@@ -1,13 +1,5 @@
-fixes:
-  - "before/test-*::after/"
-
-parsers:
-  gcov:
-    branch_detection:
-      conditional: yes
-      loop: yes
-      method: no
-      macro: no
-
 ignore:
   - "test"
+
+comment:
+  require_changes: true
