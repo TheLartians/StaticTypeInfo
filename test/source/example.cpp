@@ -1,7 +1,6 @@
 #include <doctest/doctest.h>
 
 // clang-format off
-#include <iostream>
 #include <static_type_info.h>
 
 void example() {

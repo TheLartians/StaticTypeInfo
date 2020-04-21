@@ -15,7 +15,6 @@ The header-only library exposes two main `constexpr` functions: `constexpr TypeN
 The TypeIndex may be used as a key in any hash-based container.
 
 ```cpp
-#include <iostream>
 #include <static_type_info.h>
 
 void example() {
