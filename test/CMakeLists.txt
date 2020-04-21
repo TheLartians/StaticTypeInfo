@@ -65,6 +65,6 @@ doctest_discover_tests(StaticTypeIndexTests)
 # ---- code coverage ----
 
 if (ENABLE_TEST_COVERAGE)
-  target_compile_options(StaticTypeIndexTests PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
-  target_link_options(StaticTypeIndexTests PUBLIC -fprofile-arcs -ftest-coverage)
+  target_compile_options(StaticTypeIndex INTERFACE -O0 -g -fprofile-arcs -ftest-coverage)
+  target_link_options(StaticTypeIndex INTERFACE -fprofile-arcs -ftest-coverage)
 endif()
