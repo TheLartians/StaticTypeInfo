@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
-project(StaticTypeIndexTests
+project(StaticTypeInfoTests
   LANGUAGES CXX
 )
 
@@ -37,10 +37,10 @@ CPMAddPackage(
 # ---- Create binary ----
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
-add_executable(StaticTypeIndexTests ${sources})
-target_link_libraries(StaticTypeIndexTests doctest StaticTypeInfo)
+add_executable(StaticTypeInfoTests ${sources})
+target_link_libraries(StaticTypeInfoTests doctest StaticTypeInfo)
 
-set_target_properties(StaticTypeIndexTests PROPERTIES CXX_STANDARD 17)
+set_target_properties(StaticTypeInfoTests PROPERTIES CXX_STANDARD 17)
 
 # enable compiler warnings
 if (NOT TEST_INSTALLED_VERSION)
@@ -51,20 +51,20 @@ if (NOT TEST_INSTALLED_VERSION)
   endif()
 endif()
 
-# ---- Add StaticTypeIndexTests ----
+# ---- Add StaticTypeInfoTests ----
 
 ENABLE_TESTING() 
 
 # Note: doctest and similar testing frameworks can automatically configure CMake tests
 # For other testing frameworks add the tests target instead:
-# ADD_TEST(StaticTypeIndexTests StaticTypeIndexTests)
+# ADD_TEST(StaticTypeInfoTests StaticTypeInfoTests)
 
 include(${doctest_SOURCE_DIR}/scripts/cmake/doctest.cmake)
-doctest_discover_tests(StaticTypeIndexTests)
+doctest_discover_tests(StaticTypeInfoTests)
 
 # ---- code coverage ----
 
 if (ENABLE_TEST_COVERAGE)
-  target_compile_options(StaticTypeIndexTests PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
-  target_link_options(StaticTypeIndexTests PUBLIC -fprofile-arcs -ftest-coverage)
+  target_compile_options(StaticTypeInfo INTERFACE -O0 -g -fprofile-arcs -ftest-coverage)
+  target_link_options(StaticTypeInfo INTERFACE -fprofile-arcs -ftest-coverage)
 endif()
