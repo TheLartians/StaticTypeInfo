@@ -45,6 +45,7 @@ The type index is a 64 bit fnv1a hash of the type name.
 ## Compatibility
 
 The library has been tested with AppleClang 11, Visual Studio 16 2019, and gcc-9.
+Note that type names and indices are not compatible between compilers.
 
 ## How to integrate
 
