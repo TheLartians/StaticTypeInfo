@@ -1,7 +1,6 @@
 #include <doctest/doctest.h>
 #include <static_type_info/type_name.h>
 
-#include <iostream>
 #include <string>
 
 namespace {
