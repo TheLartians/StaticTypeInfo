@@ -3,7 +3,7 @@
 #ifndef STATIC_TYPE_INFO_USE_MEMBER_POINTER
 // enable the new implementation using member pointers on tested compilers
 // gcc currently fails as member pointers are not considered constexpr
-#  if defined(__clang__) || defined(_MSC_VER)
+#  if defined(__clang__) || defined(_MSC_VER) || defined(EMSCRIPTEN)
 #    define STATIC_TYPE_INFO_USE_MEMBER_POINTER true
 #  else
 #    define STATIC_TYPE_INFO_USE_MEMBER_POINTER false
