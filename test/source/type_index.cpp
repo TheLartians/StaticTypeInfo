@@ -1,6 +1,7 @@
 #include <doctest/doctest.h>
 #include <static_type_info/type_index.h>
 
+#include <cstddef>
 #include <type_traits>
 
 namespace ns {
@@ -21,7 +22,7 @@ template <class A, class B> void checkType() {
   }
 }
 
-TEST_CASE_TEMPLATE("TypeIndex", T, char, int, unsigned, float, double, long, long long, size_t,
+TEST_CASE_TEMPLATE("TypeIndex", T, char, int, unsigned, float, double, long, long long, std::size_t,
                    ns::A, ns::B, ns::C<ns::A>, ns::C<ns::B>) {
   checkType<char, T>();
   checkType<int, T>();
