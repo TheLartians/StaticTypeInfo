@@ -41,6 +41,11 @@ void example() {
 The library has been tested with AppleClang 11, Visual Studio 16 2019, and gcc-9.
 Note that type names and indices are not compatible between compilers.
 
+## How it works
+
+ The type name is extracted from the macro `__PRETTY_FUNCTION__` (clang/gcc) or `__FUNCSIG__` (on MSVC) inside a probe function and converted to a `string_view` using the `constexpr` constructor.
+ The type index is determined from the pointer to a static member of a templated string (clang / msvc) or from a 64 bit fnv1a hash of the type name (gcc and others).
+
 ## How to integrate
 
 Use [CPM.cmake](https://github.com/TheLartians/CPM.cmake) to easily add the headers to your CMake project.
