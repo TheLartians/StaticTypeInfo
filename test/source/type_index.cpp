@@ -37,3 +37,20 @@ TEST_CASE_TEMPLATE("TypeIndex", T, char, int, unsigned, float, double, long, lon
   checkType<ns::C<ns::A>, T>();
   checkType<ns::C<ns::B>, T>();
 }
+
+#ifdef STATIC_TYPE_INFO_USE_MEMBER_POINTER
+// Anonymous functions are incompatible with the name based implementation
+
+template <class T> constexpr auto getAnonymousTypeIndex() {
+  using namespace static_type_info;
+  struct X {};
+  return getTypeIndex<X>();
+}
+
+TEST_CASE("Anonymous types") {
+  static_assert(getAnonymousTypeIndex<int>() != getAnonymousTypeIndex<unsigned>());
+  static_assert(getAnonymousTypeIndex<int>() != getAnonymousTypeIndex<float>());
+  static_assert(getAnonymousTypeIndex<int>() != getAnonymousTypeIndex<double>());
+}
+
+#endif
