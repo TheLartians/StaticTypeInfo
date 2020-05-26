@@ -53,7 +53,7 @@ Use [CPM.cmake](https://github.com/TheLartians/CPM.cmake) to easily add the head
 ```cmake
 CPMAddPackage(
   NAME StaticTypeInfo
-  VERSION 2.0
+  VERSION 1.3
   GIT_REPOSITORY https://github.com/TheLartians/StaticTypeInfo
 )
 
