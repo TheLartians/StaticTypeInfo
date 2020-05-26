@@ -22,6 +22,7 @@ namespace static_type_info {
 
 namespace std {
   template <> struct hash<static_type_info::TypeID> {
-    size_t operator()(const static_type_info::TypeID &id) const { return id.index; }
+    hash<static_type_info::TypeIndex> hasher;
+    size_t operator()(const static_type_info::TypeID &id) const { return hasher(id.index); }
   };
 }  // namespace std

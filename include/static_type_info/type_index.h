@@ -1,14 +1,10 @@
 #pragma once
 
-#include <static_type_info/hash.h>
-#include <static_type_info/type_name.h>
-
 namespace static_type_info {
 
-  using TypeIndex = uint64_t;
+  template <typename T> void idGenerator() {}
+  using TypeIndex = void (*)(void);
 
-  template <class T> constexpr TypeIndex getTypeIndex() {
-    return hash_64_fnv1a_const(getTypeName<T>());
-  }
+  template <class T> constexpr TypeIndex getTypeIndex() { return &idGenerator<T>; }
 
 }  // namespace static_type_info

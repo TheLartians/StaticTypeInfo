@@ -36,11 +36,6 @@ void example() {
 }
 ```
 
-## How it works
-
-The type name is extracted from the macro `__PRETTY_FUNCTION__` (clang/gcc) or `__FUNCSIG__` (on MSVC) inside a probe function and converted to a `string_view` using the `constexpr` constructor.
-The type index is a 64 bit fnv1a hash of the type name.
-
 ## Compatibility
 
 The library has been tested with AppleClang 11, Visual Studio 16 2019, and gcc-9.
@@ -53,7 +48,7 @@ Use [CPM.cmake](https://github.com/TheLartians/CPM.cmake) to easily add the head
 ```cmake
 CPMAddPackage(
   NAME StaticTypeInfo
-  VERSION 1.1
+  VERSION 2.0
   GIT_REPOSITORY https://github.com/TheLartians/StaticTypeInfo
 )
 
