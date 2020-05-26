@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 # Note: update this to your new project's name and version
 project(StaticTypeInfo 
-  VERSION 2.0
+  VERSION 1.3
   LANGUAGES CXX
 )
 
