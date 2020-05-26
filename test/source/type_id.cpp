@@ -26,8 +26,8 @@ TEST_CASE("Hashable TypeID") {
   CHECK(map[getTypeID<float>()] == 2);
 }
 
-#if defined(__clang__) || defined(_WIN32)
-// gcc still uses the old typeName implementation
+#ifdef STATIC_TYPE_INFO_USE_MEMBER_POINTER
+// Anonymous functions are incompatible with the name based implementation
 
 template <class T> constexpr auto getAnonymousTypeIndex() {
   using namespace static_type_info;
