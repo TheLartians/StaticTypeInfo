@@ -36,23 +36,15 @@ void example() {
 }
 ```
 
-## How it works
-
-The type name is extracted from the macro `__PRETTY_FUNCTION__` (clang/gcc) or `__FUNCSIG__` (on MSVC) inside a probe function and converted to a `string_view` using the `constexpr` constructor.
-The type index is a 64 bit fnv1a hash of the type name.
-
-## Hash collisions
-
-hash collisions are theoretically possible but very unlikely, assuming that fnv1a is a sufficiently strong hash function. If the generated hashes are more or less uniformly distributed the [probability of a collision](https://en.wikipedia.org/wiki/Birthday_problem) should be approximately `T^2 / (2^65)` for any reasonable number of types `T`.
-So for a program with 1000 unique types, the probability of a hash collision in that program is on the order of `10^(-14)`, which is incredibly unlikely.
-For most real-life purpose we can therefore assume all hashes to be unique.
-
-If you are paranoid or working on a security relevant project, you could bring that probability down to `0` with a simple test case checking the uniqueness of all used type indices within the project.
-
 ## Compatibility
 
 The library has been tested with AppleClang 11, Visual Studio 16 2019, and gcc-9.
 Note that type names and indices are not compatible between compilers.
+
+## How it works
+
+ The type name is extracted from the macro `__PRETTY_FUNCTION__` (clang/gcc) or `__FUNCSIG__` (on MSVC) inside a probe function and converted to a `string_view` using the `constexpr` constructor.
+ The type index is determined from the pointer to a static member of a templated string (clang / msvc) or from a 64 bit fnv1a hash of the type name (gcc and others).
 
 ## How to integrate
 
@@ -61,7 +53,7 @@ Use [CPM.cmake](https://github.com/TheLartians/CPM.cmake) to easily add the head
 ```cmake
 CPMAddPackage(
   NAME StaticTypeInfo
-  VERSION 1.1
+  VERSION 1.3
   GIT_REPOSITORY https://github.com/TheLartians/StaticTypeInfo
 )
 
