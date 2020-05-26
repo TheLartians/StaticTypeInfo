@@ -15,10 +15,12 @@ template <class A, class B> void checkType() {
   constexpr auto ia = getTypeIndex<A>();
   constexpr auto ib = getTypeIndex<B>();
   static_assert(ia != ib || std::is_same<A, B>::value);
-  if (std::is_same<A, B>::value) {
+  if constexpr (std::is_same<A, B>::value) {
     CHECK(ia == ib);
+    static_assert(ia == ib);
   } else {
     CHECK(ia != ib);
+    static_assert(ia != ib);
   }
 }
 
