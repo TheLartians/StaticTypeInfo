@@ -40,7 +40,7 @@ TEST_CASE_TEMPLATE("TypeIndex", T, char, int, unsigned, float, double, long, lon
   checkType<ns::C<ns::B>, T>();
 }
 
-#ifdef STATIC_TYPE_INFO_USE_MEMBER_POINTER
+#if STATIC_TYPE_INFO_USE_MEMBER_POINTER
 // Anonymous functions are incompatible with the name based implementation
 
 template <class T> constexpr auto getAnonymousTypeIndex() {
@@ -55,4 +55,6 @@ TEST_CASE("Anonymous types") {
   static_assert(getAnonymousTypeIndex<int>() != getAnonymousTypeIndex<double>());
 }
 
+#elif defined(__clang__) || defined(_MSC_VER)
+#  error STATIC_TYPE_INFO_USE_MEMBER_POINTER not enabled
 #endif

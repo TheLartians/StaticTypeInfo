@@ -4,11 +4,13 @@
 // enable the new implementation using member pointers on tested compilers
 // gcc currently fails as member pointers are not considered constexpr
 #  if defined(__clang__) || defined(_MSC_VER)
-#    define STATIC_TYPE_INFO_USE_MEMBER_POINTER
+#    define STATIC_TYPE_INFO_USE_MEMBER_POINTER true
+#  else
+#    define STATIC_TYPE_INFO_USE_MEMBER_POINTER false
 #  endif
 #endif
 
-#ifdef STATIC_TYPE_INFO_USE_MEMBER_POINTER
+#if STATIC_TYPE_INFO_USE_MEMBER_POINTER
 
 namespace static_type_info {
 
