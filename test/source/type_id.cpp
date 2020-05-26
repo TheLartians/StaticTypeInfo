@@ -25,3 +25,15 @@ TEST_CASE("Hashable TypeID") {
   CHECK(map[getTypeID<int>()] == 1);
   CHECK(map[getTypeID<float>()] == 2);
 }
+
+template <class T> constexpr auto getAnonymousTypeIndex() {
+  using namespace static_type_info;
+  struct X {};
+  return getTypeID<X>();
+}
+
+TEST_CASE("Anonymous types") {
+  static_assert(getAnonymousTypeIndex<int>() != getAnonymousTypeIndex<unsigned>());
+  static_assert(getAnonymousTypeIndex<int>() != getAnonymousTypeIndex<float>());
+  static_assert(getAnonymousTypeIndex<int>() != getAnonymousTypeIndex<double>());
+}
