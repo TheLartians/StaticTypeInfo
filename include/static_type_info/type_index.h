@@ -2,9 +2,12 @@
 
 namespace static_type_info {
 
-  template <typename T> void idGenerator() {}
-  using TypeIndex = void (*)(void);
+  template <typename T> struct IDGenerator { static const T* const id; };
 
-  template <class T> constexpr TypeIndex getTypeIndex() { return &idGenerator<T>; }
+  template <typename T> const T* const IDGenerator<T>::id = nullptr;
+
+  using TypeIndex = const void*;
+
+  template <class T> constexpr TypeIndex getTypeIndex() { return &IDGenerator<T>::id; }
 
 }  // namespace static_type_info
