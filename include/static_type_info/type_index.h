@@ -15,8 +15,8 @@
 namespace static_type_info {
 
   namespace detail {
-    template <typename T> struct IDGenerator { static const void* const id; };
-    template <typename T> const void* const IDGenerator<T>::id = nullptr;
+    template <typename T> struct IDGenerator { static const void* id; };
+    template <typename T> const void* IDGenerator<T>::id = nullptr;
   }  // namespace detail
 
   using TypeIndex = decltype(&detail::IDGenerator<void>::id);
